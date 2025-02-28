@@ -62,7 +62,7 @@ int main() {
     }
 
     if(input == "pwd") {
-      std::cout << fs::current_path() << std::endl;
+      std::cout << (std::string)fs::current_path() << std::endl;
       continue;
     }
 
