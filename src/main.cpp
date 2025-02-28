@@ -61,6 +61,11 @@ int main() {
       continue;
     }
 
+    if(input == "pwd") {
+      std::cout << fs::current_path() << std::endl;
+      continue;
+    }
+
     std::cout << input << ": command not found" << std::endl;   
   }
 }
