@@ -68,7 +68,8 @@ int main() {
 
     if(s=="cd") {
       ss >> s;
-      if(fs::exists(s)) fs::current_path(s);
+      if(s == "~") fs::current_path(std::getenv("HOME"));
+      else if(fs::exists(s)) fs::current_path(s);
       else std::cout << "cd: " << s << ": No such file or directory" << std::endl;
       continue;
     }
