@@ -22,7 +22,7 @@ std::string get_path(std::string &command) {
 
 int main() {
   // Flush after every std::cout / std:cerr
-  std::unordered_set<std::string> builtin({"type", "exit", "echo", "pwd"});
+  std::unordered_set<std::string> builtin({"type", "exit", "echo", "pwd", "cd"});
   
   while(1) {
     std::cout << std::unitbuf;
@@ -63,6 +63,13 @@ int main() {
 
     if(input == "pwd") {
       std::cout << (std::string)fs::current_path() << std::endl;
+      continue;
+    }
+
+    if(s=="cd") {
+      ss >> s;
+      if(fs::exists(s)) fs::current_path(s);
+      else std::cout << "cd: " << s << ": No such file or directory" << std::endl;
       continue;
     }
 
