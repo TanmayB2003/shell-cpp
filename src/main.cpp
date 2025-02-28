@@ -22,7 +22,7 @@ std::string get_path(std::string &command) {
 
 int main() {
   // Flush after every std::cout / std:cerr
-  std::unordered_set<std::string> builtin({"type", "exit", "echo"});
+  std::unordered_set<std::string> builtin({"type", "exit", "echo", "pwd"});
   
   while(1) {
     std::cout << std::unitbuf;
