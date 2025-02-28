@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <unordered_map>
 #include <filesystem>
 
 namespace fs = std::filesystem;
@@ -25,7 +24,6 @@ int main() {
   // Flush after every std::cout / std:cerr
   std::unordered_set<std::string> builtin({"type", "exit", "echo"});
   
-
   while(1) {
     std::cout << std::unitbuf;
     std::cerr << std::unitbuf;
@@ -53,6 +51,13 @@ int main() {
         std::cout << s << " is " << exec << std::endl;
       else 
         std::cout << s << ": not found" << std::endl;
+      continue;
+    }
+    std::stringstream ss(input);
+    std::string s;
+    ss >> s;
+    if(get_path(s)!="") {
+      system(input.c_str());
       continue;
     }
 
